@@ -20,6 +20,7 @@ namespace ResturantManagementAPI.Models.Context
             modelBuilder.ApplyConfiguration(new CartItemEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new ItemIngredidiante());
+            modelBuilder.ApplyConfiguration(new MealItemEntityTypeConfiguration());
             
             modelBuilder.ApplyConfiguration(new EntityTypeConfigurationMeal());
         }
