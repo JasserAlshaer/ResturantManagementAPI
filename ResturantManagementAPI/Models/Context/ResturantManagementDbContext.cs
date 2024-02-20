@@ -18,6 +18,7 @@ namespace ResturantManagementAPI.Models.Context
             //method -2
             modelBuilder.ApplyConfiguration(new CartEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new CartItemEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new EntityTypeConfigurationMeal());
         }
 
         public virtual DbSet<User> Users { get; set; }
