@@ -13,11 +13,12 @@ namespace ResturantManagementAPI.Models.Context
         {
             base.OnModelCreating(modelBuilder);
             //method - 1
-            modelBuilder.Entity<User>().HasKey(x => x.Id);
-            modelBuilder.Entity<User>().Property(x=>x.Id).UseIdentityColumn();
+            //modelBuilder.Entity<User>().HasKey(x => x.Id);
+            //modelBuilder.Entity<User>().Property(x=>x.Id).UseIdentityColumn();
             //method -2
             modelBuilder.ApplyConfiguration(new CartEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new CartItemEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
         }
 
         public virtual DbSet<User> Users { get; set; }
