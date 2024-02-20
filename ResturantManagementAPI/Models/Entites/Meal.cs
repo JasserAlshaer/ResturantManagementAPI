@@ -2,7 +2,7 @@
 {
     public class Meal
     {
-        public int MealID { get; set; }
+        public int Id { get; set; }
         public int ItemId { get; set; }
         public int ItemMealId { get; set; }
         public int CartItemMeal { get; set; }
@@ -10,5 +10,8 @@
         public string Description { get; set; }
         public float Price { get; set; }
         public string Image { get; set; }
+
+        public virtual List<MealItem> MealItems { get; set; }
+        public virtual List<CartItem> CartItems { get; set; }
     }
 }
