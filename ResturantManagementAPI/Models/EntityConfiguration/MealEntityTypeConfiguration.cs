@@ -4,12 +4,12 @@ using ResturantManagementAPI.Models.Entites;
 
 namespace ResturantManagementAPI.Models.EntityConfiguration
 {
-    public class ItemIngredidianteEntityTypeConfiguration : IEntityTypeConfiguration<ItemIngredidiante>
+    public class MealEntityTypeConfiguration : IEntityTypeConfiguration<Meal>
     {
-        public void Configure(EntityTypeBuilder<ItemIngredidiante> builder)
+        public void Configure(EntityTypeBuilder<Meal> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.Property(x=>x.Id).UseIdentityColumn();
+            builder.Property(x => x.Id).UseIdentityColumn();
         }
     }
 }

@@ -19,11 +19,13 @@ namespace ResturantManagementAPI.Models.Context
             modelBuilder.ApplyConfiguration(new CartEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new CartItemEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
-            modelBuilder.ApplyConfiguration(new ItemIngredidiante());
             modelBuilder.ApplyConfiguration(new MealItemEntityTypeConfiguration());
-            
-            modelBuilder.ApplyConfiguration(new EntityTypeConfigurationMeal());
+            modelBuilder.ApplyConfiguration(new MealEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new OrderEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new ItemEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new ItemIngredidianteEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new IngredidianteEntityTypeConfiguration());
+
         }
 
         public virtual DbSet<User> Users { get; set; }
