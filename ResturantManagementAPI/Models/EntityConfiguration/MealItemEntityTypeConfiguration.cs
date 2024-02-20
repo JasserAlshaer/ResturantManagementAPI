@@ -8,8 +8,15 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<MealItem> builder)
         {
-            builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).UseIdentityColumn();
+            builder.ToTable("MealItemss");
+
+            builder.HasKey(x => x.Id);  
+            builder.Property(x => x.Id).UseIdentityColumn(); 
+            
+                       
+            builder.Property(x => x.IsDeleted).HasDefaultValue(false);
+           
+
         }
     }
 }
