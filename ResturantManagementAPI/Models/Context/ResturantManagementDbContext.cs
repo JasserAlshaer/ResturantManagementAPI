@@ -19,6 +19,7 @@ namespace ResturantManagementAPI.Models.Context
             modelBuilder.ApplyConfiguration(new CartEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new CartItemEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new OrderEntityTypeConfiguration());
         }
 
         public virtual DbSet<User> Users { get; set; }
