@@ -2,5 +2,13 @@
 {
     public class Cart
     {
+        public int Id { get; set; }
+
+        public string Status { get; set;}
+       
+        public virtual User User { get; set; }
+        public virtual Order Order { get; set; }
+        public virtual List<CartItem> CartItems { get; set; }
     }
+    
 }
