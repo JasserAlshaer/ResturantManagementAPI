@@ -6,6 +6,8 @@
         public string Name { get; set; }
         public string Email { get; set; }
         public string UserType { get; set; }
+        public bool IsDeleted { get; set; }
+
         public virtual List<Cart> Carts { get; set; }
     }
 }

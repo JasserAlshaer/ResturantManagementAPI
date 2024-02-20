@@ -5,6 +5,8 @@
         public int Id { get; set; }
         public int Quantity { get; set; }
         public decimal Price { get; set; }
+        public bool IsDeleted { get; set; }
+
         public virtual List<ItemIngredidiante> ItemIngredidiantes { get; set; }
         public virtual List<MealItem> MealItems { get; set; }   
         public virtual List<CartItem> CartItems { get; set; }
