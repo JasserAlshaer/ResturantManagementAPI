@@ -19,6 +19,8 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
 
             builder.Property(x => x.IsDeleted).HasDefaultValue(false);
             builder.Property(x => x.OrderDate).HasDefaultValue(DateTime.Now);
+
+            
         }
     }
 

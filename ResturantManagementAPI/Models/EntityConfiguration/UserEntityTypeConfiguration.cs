@@ -22,6 +22,10 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
             builder.ToTable(x => x.HasCheckConstraint("CH_EmailValidation", "[Email] like '%@gmail.com'"));
 
             builder.Property(x => x.IsDeleted).HasDefaultValue(false);
+
+            builder.HasMany(c => c.Carts)
+                .WithOne(u => u.User)
+                .HasForeignKey("UserId");
         }
     }
 }

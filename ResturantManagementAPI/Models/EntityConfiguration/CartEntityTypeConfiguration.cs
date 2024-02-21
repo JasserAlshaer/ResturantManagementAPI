@@ -25,6 +25,13 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
             builder.Property(x=>x.CreatedDate).HasDefaultValue(DateTime.Now);
             //forigen key
 
+            builder.HasMany(ci => ci.CartItems)
+                .WithOne(c => c.Cart)
+                .HasForeignKey("CartId");
+
+            builder.HasOne<Order>(c => c.Order)
+                .WithOne(o => o.Cart).HasForeignKey("Order", "CartId");
+
         }
     }
 }

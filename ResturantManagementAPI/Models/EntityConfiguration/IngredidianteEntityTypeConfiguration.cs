@@ -23,6 +23,10 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
 
             builder.Property(x => x.IsDeleted).HasDefaultValue(false);
 
+            builder.HasMany(i => i.ItemIngredidiantes)
+                .WithOne(i => i.Ingredidiante)
+                .HasForeignKey("IngredidianteId");
+
         }
     }
 }
