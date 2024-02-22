@@ -10,6 +10,8 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
+            //forigen key 
+            builder.HasOne<Cart>(x => x.Cart).WithOne(x => x.Order).HasForeignKey("Cart", "CartId");
         }
     }
 
