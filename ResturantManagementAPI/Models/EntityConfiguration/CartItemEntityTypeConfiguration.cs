@@ -10,8 +10,16 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
 
         public void Configure(EntityTypeBuilder<CartItem> builder)
         {
-            builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).UseIdentityColumn();
+    
+
+         
+            builder.HasKey(x => x.Id); 
+            builder.Property(x => x.Id).UseIdentityColumn(); 
+            builder.Property(x => x.Id).IsRequired(true); 
+            builder.HasIndex(x => x.Id).IsUnique();
+            builder.ToTable(x => x.HasCheckConstraint("Quantity-CH", "Qtn < 0"));
+        
+ 
         }
     }
 }

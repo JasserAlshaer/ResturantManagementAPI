@@ -10,6 +10,12 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
+
+            builder.ToTable(x => x.HasCheckConstraint("price", "PricePerUnit > 0"));
+            builder.ToTable(x => x.HasCheckConstraint("StockQu", "StockQuantity > 10"));
+
+             
+
         }
     }
 }
