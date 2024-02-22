@@ -1,16 +1,14 @@
-﻿namespace ResturantManagementAPI.Models.Entites
+﻿using ResturantManagementAPI.Models.Shared;
+
+namespace ResturantManagementAPI.Models.Entites
 {
-    public class Meal
-    {
-        public int Id { get; set; }
-        public int ItemId { get; set; }
-        public int ItemMealId { get; set; }
-        public int CartItemMeal { get; set; }
+    public class Meal : ParentEntity
+    { 
         public string Name  { get; set; }
         public string Description { get; set; }
         public float Price { get; set; }
-        public string Image { get; set; }
-
+        public string ImagePath { get; set; }.03
+        public string ServingSize { get; set; }
         public virtual List<MealItem> MealItems { get; set; }
         public virtual List<CartItem> CartItems { get; set; }
     }

@@ -1,8 +1,10 @@
-﻿namespace ResturantManagementAPI.Models.Entites
+﻿using ResturantManagementAPI.Models.Shared;
+
+namespace ResturantManagementAPI.Models.Entites
 {
-    public class CartItem
+    public class CartItem : ParentEntity
     {
-        public int Id { get; set; }
+        
         public int Qtn { get; set; }
 
         public virtual Item? Item { get; set; }  

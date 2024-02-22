@@ -8,7 +8,7 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
     {
         public void Configure(EntityTypeBuilder<Cart> builder)
         {
-            builder.ToTable("Users"); // change table name 
+            builder.ToTable("Carts"); // change table name 
 
             //primary key 
             builder.HasKey(x => x.Id); // adding primary key 
