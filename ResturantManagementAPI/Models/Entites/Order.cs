@@ -11,7 +11,8 @@ namespace ResturantManagementAPI.Models.Entites
         public string RecivieingMethod { get; set; }
         public string Status { get; set; }
         public string DelievryManPhone { get; set; }
-        public float TotalPrice { get; set; }
+        public float TotalPrice { get; set; }        public float PromoCode { get; set; }
+        public string PaymentMethod { get; set; }
         public DateTime OrderDate { get; set; }
         public virtual Cart Cart { get; set; }  
     }
