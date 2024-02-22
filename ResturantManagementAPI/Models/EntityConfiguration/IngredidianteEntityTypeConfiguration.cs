@@ -13,7 +13,7 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
 
 
             builder.Property(x => x.PricePerUnit).IsRequired(true);
-            builder.Property(x => x.PricePerUnit).HasDefaultValue("0");
+            builder.Property(x => x.PricePerUnit).HasDefaultValue(0);
             builder.ToTable(x => x.HasCheckConstraint("CH_PricePerUnit", "(PricePerUnit) >= 0"));
 
 
@@ -22,11 +22,11 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
             builder.ToTable(x => x.HasCheckConstraint("CH_IngredientName", "LEN(IngredientName) >= 3 AND LEN(IngredientName) <= 20"));
 
             builder.Property(x => x.Description).IsRequired(true);
-            builder.HasIndex(x => x.IngredientName).IsUnique(false);
+            builder.HasIndex(x => x.Description).IsUnique(false);
             builder.ToTable(x => x.HasCheckConstraint("CH_Description", "LEN(Description) >= 10 AND LEN(Description) <= 50"));
 
             builder.ToTable(x => x.HasCheckConstraint("CH_Quantity", "(Quantity) >= 0"));
-            builder.Property(x => x.Quantity).HasDefaultValue("0");
+            builder.Property(x => x.Quantity).HasDefaultValue(0);
 
             builder.Property(x => x.IsActive).HasDefaultValue(true);
             builder.Property(x => x.CreationDateTime).HasDefaultValue(DateTime.Now);
