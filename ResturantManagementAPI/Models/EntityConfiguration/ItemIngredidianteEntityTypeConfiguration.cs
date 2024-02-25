@@ -10,6 +10,8 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
         {
             builder.HasKey(x => x.Id);
             builder.Property(x=>x.Id).UseIdentityColumn();
+            builder.ToTable(x => x.HasCheckConstraint("Qtn-ch", "Qtn > 1"));
+
         }
     }
 }
