@@ -11,7 +11,7 @@ namespace ResturantManagementAPI.Models.Entites
         public string Phone { get; set; }
         public string ProfileImagePath { get; set; }
         public string SerialNumber { get; set; } //Ad-1,EMP-1,Client-1
-        public string UserType { get; set; }
+        public string UserType { get; set; }//column
         public virtual List<Cart> Carts { get; set; }
     }
 }
