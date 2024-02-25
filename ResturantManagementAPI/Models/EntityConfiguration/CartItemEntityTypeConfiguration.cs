@@ -18,7 +18,7 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
             //builder.Property(x => x.Id).IsRequired(); 
             //builder.HasIndex(x => x.Id).IsUnique();
 
-            builder.ToTable(x => x.HasCheckConstraint("Quantity-CH", "Qtn >= 0"));
+            builder.ToTable(x => x.HasCheckConstraint("_CartItem_Quantity_CH", "Qtn >= 0"));
             builder.Property(x=>x.Qtn).HasDefaultValue(0);
         
  

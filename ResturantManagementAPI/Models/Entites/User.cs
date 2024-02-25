@@ -1,5 +1,6 @@
 ﻿using ResturantManagementAPI.Models.Shared;
 using System.ComponentModel.DataAnnotations;
+using static ResturantManagementAPI.Helper.Enums.ResturnantManagementLookups;
 
 namespace ResturantManagementAPI.Models.Entites
 {
@@ -11,7 +12,7 @@ namespace ResturantManagementAPI.Models.Entites
         public string Phone { get; set; }
         public string ProfileImagePath { get; set; }
         public string SerialNumber { get; set; } //Ad-1,EMP-1,Client-1
-        public string UserType { get; set; }//column
+        public UserType UserType { get; set; }//column
         public virtual List<Cart> Carts { get; set; }
     }
 }

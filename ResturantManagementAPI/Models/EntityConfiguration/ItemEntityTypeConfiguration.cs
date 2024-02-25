@@ -21,10 +21,10 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
             builder.Property(x => x.Description).HasMaxLength(150);
 
             //check 
-            builder.ToTable(x => x.HasCheckConstraint("CH_Quantity", "LEN(Quantity) >0 "));
-            builder.ToTable(x => x.HasCheckConstraint("CH_price", "LEN(Price) >0 "));
-            builder.ToTable(x => x.HasCheckConstraint("CH_Name", "LEN(Quantity) >3 "));
-            builder.ToTable(x => x.HasCheckConstraint("CH_Description", "LEN(Description) >0 "));
+            builder.ToTable(x => x.HasCheckConstraint("CH_Item__Quantity", "LEN(Quantity) >0 "));
+            builder.ToTable(x => x.HasCheckConstraint("CH_Item__price", "LEN(Price) >0 "));
+            builder.ToTable(x => x.HasCheckConstraint("CH_Item_Name", "LEN(Quantity) >3 "));
+            builder.ToTable(x => x.HasCheckConstraint("CH_Item__Description", "LEN(Description) >0 "));
 
             //default 
             builder.Property(x => x.Quantity).HasDefaultValue(1);

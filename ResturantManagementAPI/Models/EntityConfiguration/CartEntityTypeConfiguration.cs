@@ -14,12 +14,12 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
             builder.HasKey(x => x.Id); // adding primary key 
             builder.Property(x=>x.Id).UseIdentityColumn(); // applaying auto increment
             // not null constraint 
-            builder.Property(x=>x.Status).IsRequired(false); // marked as allow null
+            //builder.Property(x=>x.Status).IsRequired(false); // marked as allow null
             builder.Property(x => x.Status).IsRequired(true);
             //unique constraint 
-            builder.HasIndex(x => x.Status).IsUnique();
+            //builder.HasIndex(x => x.Status).IsUnique();
             //check 
-            builder.ToTable(x => x.HasCheckConstraint("CH_CartAddingDate", "CreatedDate >= sysdatetime()"));
+            builder.ToTable(x => x.HasCheckConstraint("CH_Cart_AddingDate", "CreatedDate >= sysdatetime()"));
             //default 
             builder.Property(x=>x.IsDeleted).HasDefaultValue(false);
             builder.Property(x=>x.CreatedDate).HasDefaultValue(DateTime.Now);

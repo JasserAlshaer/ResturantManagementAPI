@@ -1,5 +1,5 @@
 ﻿using ResturantManagementAPI.Models.Shared;
-
+using static ResturantManagementAPI.Helper.Enums.ResturnantManagementLookups;
 namespace ResturantManagementAPI.Models.Entites
 {
     public class Order : ParentEntity
@@ -9,11 +9,11 @@ namespace ResturantManagementAPI.Models.Entites
         public float TaxAmount { get; set; }
         public float DiscountAmount { get; set; }
         public float TotalPrice { get; set; }
-        public string RecivieingMethod { get; set; }
-        public string Status { get; set; }
+        public RecivingMethod RecivieingMethod { get; set; }
+        public Status Status { get; set; }
         public string DelievryManPhone { get; set; }
         public float PromoCode { get; set; }
-        public string PaymentMethod { get; set; }
+        public PaymentMethod PaymentMethod { get; set; }
         public DateTime OrderDate { get; set; }
         public virtual Cart Cart { get; set; }  
     }

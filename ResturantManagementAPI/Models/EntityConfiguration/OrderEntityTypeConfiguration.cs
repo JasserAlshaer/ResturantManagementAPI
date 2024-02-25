@@ -13,11 +13,11 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
             //forigen key 
             builder.HasOne<Cart>(x => x.Cart).WithOne(x => x.Order).HasForeignKey("Cart", "CartId");
             //check 
-            builder.ToTable(x => x.HasCheckConstraint("Ch_NetPrice", "NetPrice=>0"));
-            builder.ToTable(x => x.HasCheckConstraint("Ch_TaxAmount", "TaxAmount=>0"));
-            builder.ToTable(x => x.HasCheckConstraint("Ch_DiscountAmount", "DiscountAmount=>0"));
-            builder.ToTable(x => x.HasCheckConstraint("Ch_TotalPrice", "TotalPrice=>0"));
-            builder.ToTable(x => x.HasCheckConstraint("Ch_phone", "(len([DelievryManPhone])=(10) AND ([DelievryManPhone] like '079%' OR [DelievryManPhone] like '078%' OR [Phone] like '077%'))"));
+            builder.ToTable(x => x.HasCheckConstraint("Ch_Order_NetPrice", "NetPrice>=0"));
+            builder.ToTable(x => x.HasCheckConstraint("Ch_Order_TaxAmount", "TaxAmount>=0"));
+            builder.ToTable(x => x.HasCheckConstraint("Ch_Order_DiscountAmount", "DiscountAmount>=0"));
+            builder.ToTable(x => x.HasCheckConstraint("Ch_Order_TotalPrice", "TotalPrice>=0"));
+            builder.ToTable(x => x.HasCheckConstraint("Ch_Order_phone", "(len([DelievryManPhone])=(10) AND ([DelievryManPhone] like '079%' OR [DelievryManPhone] like '078%' OR [DelievryManPhone] like '077%'))"));
 
             //Default Constraint
             builder.Property(x => x.NetPrice).HasDefaultValue(0);
@@ -27,8 +27,9 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
             builder.Property(x => x.OrderDate).HasDefaultValue(DateTime.Now);
             //not Required
             builder.Property(x => x.Title).IsRequired(false);
-            builder.Property(x => x.RecivieingMethod).IsRequired(false);
-            builder.Property(x => x.Status).IsRequired(false);
+            builder.Property(x => x.RecivieingMethod).IsRequired(true);
+            builder.Property(x => x.Status).IsRequired(true);
+            builder.Property(x => x.PaymentMethod).IsRequired(true);
 
 
 

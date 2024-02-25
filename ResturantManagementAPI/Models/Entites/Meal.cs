@@ -7,7 +7,7 @@ namespace ResturantManagementAPI.Models.Entites
         public string Name  { get; set; }
         public string Description { get; set; }
         public float Price { get; set; }
-        public string ImagePath { get; set; }.03
+        public string ImagePath { get; set; }
         public string ServingSize { get; set; }
         public virtual List<MealItem> MealItems { get; set; }
         public virtual List<CartItem> CartItems { get; set; }

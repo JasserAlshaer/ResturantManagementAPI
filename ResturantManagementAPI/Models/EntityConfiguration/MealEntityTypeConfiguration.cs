@@ -26,8 +26,8 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
 
             builder.ToTable(m =>
             {
-                m.HasCheckConstraint("CH_Price", "Price > 0");
-                m.HasCheckConstraint("CH_Name", "LEN(Name)>4");
+                m.HasCheckConstraint("CH_Meal_Price", "Price > 0");
+                m.HasCheckConstraint("CH_Meal_Name", "LEN(Name)>4");
             });
 
         }
