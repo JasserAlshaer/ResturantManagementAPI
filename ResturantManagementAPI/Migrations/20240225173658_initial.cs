@@ -12,7 +12,7 @@ namespace ResturantManagementAPI.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Ingredidiantes",
+                name: "Ingratiates",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -27,11 +27,11 @@ namespace ResturantManagementAPI.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Ingredidiantes", x => x.Id);
-                    table.CheckConstraint("CH_Ingredidiante_Description", "LEN(Description) >= 10 AND LEN(Description) <= 50");
-                    table.CheckConstraint("CH_Ingredidiante_IngredientName", "LEN(IngredientName) >= 3 AND LEN(IngredientName) <= 20");
-                    table.CheckConstraint("CH_Ingredidiante_PricePerUnit", "(PricePerUnit) >= 0");
-                    table.CheckConstraint("CH_Ingredidiante_Quantity", "(Quantity) >= 0");
+                    table.PrimaryKey("PK_Ingratiates", x => x.Id);
+                    table.CheckConstraint("CH_Ingratiate_Description", "LEN(Description) >= 10 AND LEN(Description) <= 50");
+                    table.CheckConstraint("CH_Ingratiate_IngredientName", "LEN(IngredientName) >= 3 AND LEN(IngredientName) <= 20");
+                    table.CheckConstraint("CH_Ingratiate_PricePerUnit", "(PricePerUnit) >= 0");
+                    table.CheckConstraint("CH_Ingratiate_Quantity", "(Quantity) >= 0");
                 });
 
             migrationBuilder.CreateTable(
@@ -135,29 +135,29 @@ namespace ResturantManagementAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ItemIngredidiantes",
+                name: "ItemIngratiates",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Qtn = table.Column<float>(type: "real", nullable: false),
-                    IngredidianteId = table.Column<int>(type: "int", nullable: false),
+                    IngratiateId = table.Column<int>(type: "int", nullable: false),
                     ItemId = table.Column<int>(type: "int", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     CreationDateTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ItemIngredidiantes", x => x.Id);
-                    table.CheckConstraint("Qtn_ItemIngredidiante_ch", "Qtn > 1");
+                    table.PrimaryKey("PK_ItemIngratiates", x => x.Id);
+                    table.CheckConstraint("Qtn_ItemIngratiate_ch", "Qtn > 1");
                     table.ForeignKey(
-                        name: "FK_ItemIngredidiantes_Ingredidiantes_IngredidianteId",
-                        column: x => x.IngredidianteId,
-                        principalTable: "Ingredidiantes",
+                        name: "FK_ItemIngratiates_Ingratiates_IngratiateId",
+                        column: x => x.IngratiateId,
+                        principalTable: "Ingratiates",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ItemIngredidiantes_Items_ItemId",
+                        name: "FK_ItemIngratiates_Items_ItemId",
                         column: x => x.ItemId,
                         principalTable: "Items",
                         principalColumn: "Id",
@@ -287,24 +287,24 @@ namespace ResturantManagementAPI.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ingredidiantes_Description",
-                table: "Ingredidiantes",
+                name: "IX_Ingratiates_Description",
+                table: "Ingratiates",
                 column: "Description");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Ingredidiantes_IngredientName",
-                table: "Ingredidiantes",
+                name: "IX_Ingratiates_IngredientName",
+                table: "Ingratiates",
                 column: "IngredientName",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_ItemIngredidiantes_IngredidianteId",
-                table: "ItemIngredidiantes",
-                column: "IngredidianteId");
+                name: "IX_ItemIngratiates_IngratiateId",
+                table: "ItemIngratiates",
+                column: "IngratiateId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ItemIngredidiantes_ItemId",
-                table: "ItemIngredidiantes",
+                name: "IX_ItemIngratiates_ItemId",
+                table: "ItemIngratiates",
                 column: "ItemId");
 
             migrationBuilder.CreateIndex(
@@ -339,7 +339,7 @@ namespace ResturantManagementAPI.Migrations
                 name: "CartItems");
 
             migrationBuilder.DropTable(
-                name: "ItemIngredidiantes");
+                name: "ItemIngratiates");
 
             migrationBuilder.DropTable(
                 name: "MealItems");
@@ -348,7 +348,7 @@ namespace ResturantManagementAPI.Migrations
                 name: "Carts");
 
             migrationBuilder.DropTable(
-                name: "Ingredidiantes");
+                name: "Ingratiates");
 
             migrationBuilder.DropTable(
                 name: "Items");

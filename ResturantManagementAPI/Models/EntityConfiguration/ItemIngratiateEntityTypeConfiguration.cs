@@ -4,13 +4,13 @@ using ResturantManagementAPI.Models.Entites;
 
 namespace ResturantManagementAPI.Models.EntityConfiguration
 {
-    public class ItemIngredidianteEntityTypeConfiguration : IEntityTypeConfiguration<ItemIngredidiante>
+    public class ItemIngratiateEntityTypeConfiguration : IEntityTypeConfiguration<ItemIngratiate>
     {
-        public void Configure(EntityTypeBuilder<ItemIngredidiante> builder)
+        public void Configure(EntityTypeBuilder<ItemIngratiate> builder)
         {
             builder.HasKey(x => x.Id);
             builder.Property(x=>x.Id).UseIdentityColumn();
-            builder.ToTable(x => x.HasCheckConstraint("Qtn_ItemIngredidiante_ch", "Qtn > 1"));
+            builder.ToTable(x => x.HasCheckConstraint("Qtn_ItemIngratiate_ch", "Qtn > 1"));
 
         }
     }

@@ -2,7 +2,7 @@
 
 namespace ResturantManagementAPI.Models.Entites
 {
-    public class Ingredidiante : ParentEntity
+    public class Ingratiate : ParentEntity
     {
         
         public float PricePerUnit {  get; set; }   
@@ -10,7 +10,7 @@ namespace ResturantManagementAPI.Models.Entites
         public int Quantity {  get; set; }
         public string Description { get; set; }
         public string ImagePath { get; set; }
-        public virtual List<ItemIngredidiante> ItemIngredidiantes { get; set; }
+        public virtual List<ItemIngratiate> ItemIngratiates { get; set; }
 
     }
 }

@@ -29,7 +29,6 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
             //default 
             builder.Property(x => x.Quantity).HasDefaultValue(1);
             builder.Property(x => x.Price).HasDefaultValue(1);
-            builder.Property(x => x.CreationDate).HasDefaultValue(DateTime.Now);
         }
     }
 }

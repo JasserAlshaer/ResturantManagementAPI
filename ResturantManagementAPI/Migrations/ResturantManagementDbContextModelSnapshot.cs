@@ -110,7 +110,7 @@ namespace ResturantManagementAPI.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ResturantManagementAPI.Models.Entites.Ingredidiante", b =>
+            modelBuilder.Entity("ResturantManagementAPI.Models.Entites.Ingratiate", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -157,15 +157,15 @@ namespace ResturantManagementAPI.Migrations
                     b.HasIndex("IngredientName")
                         .IsUnique();
 
-                    b.ToTable("Ingredidiantes", t =>
+                    b.ToTable("Ingratiates", t =>
                         {
-                            t.HasCheckConstraint("CH_Ingredidiante_Description", "LEN(Description) >= 10 AND LEN(Description) <= 50");
+                            t.HasCheckConstraint("CH_Ingratiate_Description", "LEN(Description) >= 10 AND LEN(Description) <= 50");
 
-                            t.HasCheckConstraint("CH_Ingredidiante_IngredientName", "LEN(IngredientName) >= 3 AND LEN(IngredientName) <= 20");
+                            t.HasCheckConstraint("CH_Ingratiate_IngredientName", "LEN(IngredientName) >= 3 AND LEN(IngredientName) <= 20");
 
-                            t.HasCheckConstraint("CH_Ingredidiante_PricePerUnit", "(PricePerUnit) >= 0");
+                            t.HasCheckConstraint("CH_Ingratiate_PricePerUnit", "(PricePerUnit) >= 0");
 
-                            t.HasCheckConstraint("CH_Ingredidiante_Quantity", "(Quantity) >= 0");
+                            t.HasCheckConstraint("CH_Ingratiate_Quantity", "(Quantity) >= 0");
                         });
                 });
 
@@ -224,7 +224,7 @@ namespace ResturantManagementAPI.Migrations
                         });
                 });
 
-            modelBuilder.Entity("ResturantManagementAPI.Models.Entites.ItemIngredidiante", b =>
+            modelBuilder.Entity("ResturantManagementAPI.Models.Entites.ItemIngratiate", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -235,7 +235,7 @@ namespace ResturantManagementAPI.Migrations
                     b.Property<DateTime>("CreationDateTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("IngredidianteId")
+                    b.Property<int>("IngratiateId")
                         .HasColumnType("int");
 
                     b.Property<bool>("IsActive")
@@ -249,13 +249,13 @@ namespace ResturantManagementAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IngredidianteId");
+                    b.HasIndex("IngratiateId");
 
                     b.HasIndex("ItemId");
 
-                    b.ToTable("ItemIngredidiantes", t =>
+                    b.ToTable("ItemIngratiates", t =>
                         {
-                            t.HasCheckConstraint("Qtn_ItemIngredidiante_ch", "Qtn > 1");
+                            t.HasCheckConstraint("Qtn_ItemIngratiate_ch", "Qtn > 1");
                         });
                 });
 
@@ -517,21 +517,21 @@ namespace ResturantManagementAPI.Migrations
                     b.Navigation("Meal");
                 });
 
-            modelBuilder.Entity("ResturantManagementAPI.Models.Entites.ItemIngredidiante", b =>
+            modelBuilder.Entity("ResturantManagementAPI.Models.Entites.ItemIngratiate", b =>
                 {
-                    b.HasOne("ResturantManagementAPI.Models.Entites.Ingredidiante", "Ingredidiante")
-                        .WithMany("ItemIngredidiantes")
-                        .HasForeignKey("IngredidianteId")
+                    b.HasOne("ResturantManagementAPI.Models.Entites.Ingratiate", "Ingratiate")
+                        .WithMany("ItemIngratiates")
+                        .HasForeignKey("IngratiateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ResturantManagementAPI.Models.Entites.Item", "Item")
-                        .WithMany("ItemIngredidiantes")
+                        .WithMany("ItemIngratiates")
                         .HasForeignKey("ItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Ingredidiante");
+                    b.Navigation("Ingratiate");
 
                     b.Navigation("Item");
                 });
@@ -560,16 +560,16 @@ namespace ResturantManagementAPI.Migrations
                     b.Navigation("CartItems");
                 });
 
-            modelBuilder.Entity("ResturantManagementAPI.Models.Entites.Ingredidiante", b =>
+            modelBuilder.Entity("ResturantManagementAPI.Models.Entites.Ingratiate", b =>
                 {
-                    b.Navigation("ItemIngredidiantes");
+                    b.Navigation("ItemIngratiates");
                 });
 
             modelBuilder.Entity("ResturantManagementAPI.Models.Entites.Item", b =>
                 {
                     b.Navigation("CartItems");
 
-                    b.Navigation("ItemIngredidiantes");
+                    b.Navigation("ItemIngratiates");
 
                     b.Navigation("MealItems");
                 });

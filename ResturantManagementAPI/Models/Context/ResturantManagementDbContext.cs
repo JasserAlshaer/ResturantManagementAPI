@@ -23,17 +23,17 @@ namespace ResturantManagementAPI.Models.Context
             modelBuilder.ApplyConfiguration(new MealEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new OrderEntityTypeConfiguration());
             modelBuilder.ApplyConfiguration(new ItemEntityTypeConfiguration());
-            modelBuilder.ApplyConfiguration(new ItemIngredidianteEntityTypeConfiguration());
-            modelBuilder.ApplyConfiguration(new IngredidianteEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new ItemIngratiateEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new IngratiateEntityTypeConfiguration());
 
         }
 
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<CartItem> CartItems { get; set; }
-        public virtual DbSet<Ingredidiante> Ingredidiantes { get; set; }
+        public virtual DbSet<Ingratiate> Ingratiates { get; set; }
         public virtual DbSet<Item> Items { get; set; }
-        public virtual DbSet<ItemIngredidiante> ItemIngredidiantes { get; set; }
+        public virtual DbSet<ItemIngratiate> ItemIngratiates { get; set; }
         public virtual DbSet<Meal> Meals { get; set; }
         public virtual DbSet<MealItem> MealItems { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
