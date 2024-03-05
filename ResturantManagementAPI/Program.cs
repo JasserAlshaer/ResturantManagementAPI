@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using ResturantManagementAPI.Implmentations;
+using ResturantManagementAPI.Interfaces;
 using ResturantManagementAPI.Models.Context;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ResturantManagementDbContext>(cop=>
 cop.UseSqlServer(builder.Configuration.GetValue<string>("sqlconnect")));
+//try to register implementation class
+builder.Services.AddScoped<ISharedInterface, SharedImplementation>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -104,7 +104,7 @@ namespace ResturantManagementAPI.Migrations
 
                     b.HasIndex("MealId");
 
-                    b.ToTable("CartItems", t =>
+                    b.ToTable("CartItems", null, t =>
                         {
                             t.HasCheckConstraint("_CartItem_Quantity_CH", "Qtn >= 0");
                         });
@@ -157,7 +157,7 @@ namespace ResturantManagementAPI.Migrations
                     b.HasIndex("IngredientName")
                         .IsUnique();
 
-                    b.ToTable("Ingratiates", t =>
+                    b.ToTable("Ingratiates", null, t =>
                         {
                             t.HasCheckConstraint("CH_Ingratiate_Description", "LEN(Description) >= 10 AND LEN(Description) <= 50");
 
@@ -253,7 +253,7 @@ namespace ResturantManagementAPI.Migrations
 
                     b.HasIndex("ItemId");
 
-                    b.ToTable("ItemIngratiates", t =>
+                    b.ToTable("ItemIngratiates", null, t =>
                         {
                             t.HasCheckConstraint("Qtn_ItemIngratiate_ch", "Qtn > 1");
                         });
@@ -296,7 +296,7 @@ namespace ResturantManagementAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Meals", t =>
+                    b.ToTable("Meals", null, t =>
                         {
                             t.HasCheckConstraint("CH_Meal_Name", "LEN(Name)>4");
 
@@ -333,7 +333,7 @@ namespace ResturantManagementAPI.Migrations
 
                     b.HasIndex("MealId");
 
-                    b.ToTable("MealItems");
+                    b.ToTable("MealItems", (string)null);
                 });
 
             modelBuilder.Entity("ResturantManagementAPI.Models.Entites.Order", b =>
@@ -396,7 +396,7 @@ namespace ResturantManagementAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Orders", t =>
+                    b.ToTable("Orders", null, t =>
                         {
                             t.HasCheckConstraint("Ch_Order_DiscountAmount", "DiscountAmount>=0");
 
@@ -463,7 +463,7 @@ namespace ResturantManagementAPI.Migrations
                         .IsUnique()
                         .HasFilter("[Phone] IS NOT NULL");
 
-                    b.ToTable("Users", t =>
+                    b.ToTable("Users", null, t =>
                         {
                             t.HasCheckConstraint("CH_User_Email", "Email Like '%@gmail.com%' Or Email Like  '%@outlook.com%' or Email Like '%@yahoo.com%'");
 

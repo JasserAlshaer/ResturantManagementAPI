@@ -21,8 +21,8 @@ namespace ResturantManagementAPI.Models.EntityConfiguration
             //check 
             builder.ToTable(x => x.HasCheckConstraint("CH_Cart_AddingDate", "CreatedDate >= sysdatetime()"));
             //default 
-            builder.Property(x=>x.IsDeleted).HasDefaultValue(false);
-            builder.Property(x=>x.CreatedDate).HasDefaultValue(DateTime.Now);
+            builder.Property(x=>x.IsActive).HasDefaultValue(true);
+            builder.Property(x=>x.CreationDateTime).HasDefaultValue(DateTime.Now);
             //forigen key
 
         }

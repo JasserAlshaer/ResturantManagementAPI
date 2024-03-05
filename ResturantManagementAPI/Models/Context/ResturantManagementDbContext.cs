@@ -31,7 +31,7 @@ namespace ResturantManagementAPI.Models.Context
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<CartItem> CartItems { get; set; }
-        public virtual DbSet<Ingratiate> Ingratiates { get; set; }
+        public virtual DbSet<Ingratiate> Ingredidiantes { get; set; }
         public virtual DbSet<Item> Items { get; set; }
         public virtual DbSet<ItemIngratiate> ItemIngratiates { get; set; }
         public virtual DbSet<Meal> Meals { get; set; }

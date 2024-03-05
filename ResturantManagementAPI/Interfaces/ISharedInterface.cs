@@ -1,11 +1,13 @@
 ﻿using ResturantManagementAPI.Dtos.Account;
 using ResturantManagementAPI.Dtos.Login;
 using ResturantManagementAPI.Dtos.Menu;
+using ResturantManagementAPI.Models.Entites;
 
 namespace ResturantManagementAPI.Interfaces
 {
     public interface ISharedInterface
     {
+        Task<List<Ingratiate>> GetAllIngratiatesInDb();
         Task<int> Login(LoginReqDTO dto);
         //Logout
         Task Logout(int userId);
@@ -19,7 +21,6 @@ namespace ResturantManagementAPI.Interfaces
         Task<List<MenuItemDTO>> ViewMenu(bool isAdmin = false);
         //View MenuItem Details 
         Task<MenuItemDetailsDTO> ViewMenuItemDetailsDTO(int menuItemId,bool isItem=true);
-
         //Mange Cart Item and Selection 
         Task AddItemsInCart(int cartId, int itemid, int qtn, string note);
         Task UpdateItemsInCart(int cartItemId, int qtn, string note);

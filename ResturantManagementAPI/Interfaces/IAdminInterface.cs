@@ -23,13 +23,13 @@ namespace ResturantManagementAPI.Interfaces
         Task DeleteItem(int Id);
         //Meal Management
         Task<List<MealRecordDTO>> GetAllMeals();
-        Task <MealDetailsDTO>GeMealById(int Id);
+        Task<MealDetailsDTO> GeMealById(int Id);
         Task CreateMeal(CreateOrUpdateMeal dto);
         Task UpdateMeal(CreateOrUpdateMeal dto);
         Task DeleteMeal(int Id);
         //User Management 
         Task<List<UserRecordDTO>> GetAllUsers();
-        Task <UserRecordDTO> GeUserById(int Id);
+        Task<UserRecordDTO> GeUserById(int Id);
         Task DeleteUser(int Id);
         //Order Management
         Task<List<OrderRecordDTO>> GetAllOrder();
