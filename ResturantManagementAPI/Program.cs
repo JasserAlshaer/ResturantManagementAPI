@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using ResturantManagementAPI.Implmentations;
 using ResturantManagementAPI.Interfaces;
 using ResturantManagementAPI.Models.Context;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,12 @@ builder.Services.AddDbContext<ResturantManagementDbContext>(cop=>
 cop.UseSqlServer(builder.Configuration.GetValue<string>("sqlconnect")));
 //try to register implementation class
 builder.Services.AddScoped<ISharedInterface, SharedImplementation>();
+
+//Serilog Config
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.File("C:\\Users\\ASUS\\Desktop\\Logs\\logger.txt")
+    .CreateLogger();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,5 +35,5 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
+Log.Information("Application Has been Started");
 app.Run();
